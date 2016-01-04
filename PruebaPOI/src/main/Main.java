@@ -21,6 +21,8 @@ public class Main {
         /*
         Usa Ctrl+space, todo esta documentado con javadoc
         */
+        new LoginWindow().setVisible(true);
+        /*
         try( DBScheme db = new DBScheme("localhost", "pruebasExcel","root","root")){
             
             ExcelUtils.saveDBtoExcel(db, "C:\\Users\\jagam\\Documents\\Pruebas\\pruebaExcel.xls");
@@ -28,7 +30,7 @@ public class Main {
         } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        */
     }
     
 }
