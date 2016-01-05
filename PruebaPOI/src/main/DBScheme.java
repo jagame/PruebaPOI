@@ -27,8 +27,8 @@ public class DBScheme implements AutoCloseable{
         }catch(ClassNotFoundException | InstantiationException | IllegalAccessException e){
             throw new RuntimeException("No se ha encontrado el Driver del motor de Base de Datos");
         }
-        
-        con = DriverManager.getConnection("jdbc:"+db+":"+"//"+ip+"/"+dbName, user, pass);
+        String uri = "jdbc:"+db+":"+"//"+ip+"/"+dbName;
+        con = DriverManager.getConnection(uri, user, pass);
     }
     
     public DBScheme(DBClass db, String ip, String dbName)

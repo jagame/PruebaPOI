@@ -2,7 +2,6 @@
 
 <Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="location" type="java.awt.Point" editor="org.netbeans.beaninfo.editors.PointEditor">
       <Point value="[0, 0]"/>
     </Property>
@@ -55,12 +54,10 @@
                   <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="cbmotorddbb" pref="134" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtpass" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtuser" max="32767" attributes="0"/>
-                          <Component id="txtip" max="32767" attributes="0"/>
-                          <Component id="txtnamedb" pref="134" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="txtip" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtpass" max="32767" attributes="0"/>
+                      <Component id="txtuser" max="32767" attributes="0"/>
+                      <Component id="txtnamedb" pref="134" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -72,17 +69,17 @@
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="lblyser" max="32767" attributes="0"/>
-                      <Component id="txtip" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtuser" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtuser" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
+                      <Component id="txtpass" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
                       <Component id="lblpass" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtpass" alignment="0" max="32767" attributes="0"/>
-                      <Component id="lblip" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="txtip" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lblip" min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -102,12 +99,12 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="txtuser">
+        <Component class="javax.swing.JTextField" name="txtpass">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtuserActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtpassActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtpass">
+        <Component class="javax.swing.JTextField" name="txtip">
         </Component>
         <Component class="javax.swing.JButton" name="btnLogin">
           <Properties>
@@ -132,9 +129,9 @@
             <Property name="text" type="java.lang.String" value="IP"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtip">
+        <Component class="javax.swing.JTextField" name="txtuser">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtipActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtuserActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblmotorddbb">
@@ -158,6 +155,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtnamedb">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtnamedbActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

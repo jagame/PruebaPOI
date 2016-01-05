@@ -21,7 +21,20 @@ public class Main {
         /*
         Usa Ctrl+space, todo esta documentado con javadoc
         */
-        new LoginWindow().setVisible(true);
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Windows".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(LoginWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        
+        new GetDataWindow().setVisible(true);
+        
+        
         /*
         try( DBScheme db = new DBScheme("localhost", "pruebasExcel","root","root")){
             

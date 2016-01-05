@@ -6,23 +6,23 @@
 package main;
 
 import java.sql.SQLException;
-import javax.swing.AbstractListModel;
 import javax.swing.ComboBoxModel;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.event.ListDataListener;
 
 /**
  *
  * @author jagam
  */
-public class LoginWindow extends javax.swing.JFrame {
+public class LoginWindow extends javax.swing.JDialog {
 
     /**
      * Creates new form LoginWindow
+     * @param parent
+     * @param modal
      */
-    public LoginWindow() {
+    public LoginWindow( JFrame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
     }
 
@@ -36,24 +36,23 @@ public class LoginWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        txtuser = new javax.swing.JTextField();
         txtpass = new javax.swing.JTextField();
+        txtip = new javax.swing.JTextField();
         btnLogin = new javax.swing.JButton();
         lblpass = new javax.swing.JLabel();
         lblyser = new javax.swing.JLabel();
         lblip = new javax.swing.JLabel();
-        txtip = new javax.swing.JTextField();
+        txtuser = new javax.swing.JTextField();
         lblmotorddbb = new javax.swing.JLabel();
         cbmotorddbb = new javax.swing.JComboBox();
         lblnamedb = new javax.swing.JLabel();
         txtnamedb = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
 
-        txtuser.addActionListener(new java.awt.event.ActionListener() {
+        txtpass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtuserActionPerformed(evt);
+                txtpassActionPerformed(evt);
             }
         });
 
@@ -70,9 +69,9 @@ public class LoginWindow extends javax.swing.JFrame {
 
         lblip.setText("IP");
 
-        txtip.addActionListener(new java.awt.event.ActionListener() {
+        txtuser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtipActionPerformed(evt);
+                txtuserActionPerformed(evt);
             }
         });
 
@@ -86,6 +85,12 @@ public class LoginWindow extends javax.swing.JFrame {
         });
 
         lblnamedb.setText("Nombre BD");
+
+        txtnamedb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtnamedbActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -107,11 +112,10 @@ public class LoginWindow extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(cbmotorddbb, 0, 134, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtpass)
-                        .addComponent(txtuser)
-                        .addComponent(txtip)
-                        .addComponent(txtnamedb, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)))
+                    .addComponent(txtip)
+                    .addComponent(txtpass)
+                    .addComponent(txtuser)
+                    .addComponent(txtnamedb, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -120,14 +124,14 @@ public class LoginWindow extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblyser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtuser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtuser, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtpass, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblpass, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtpass)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtip)
                     .addComponent(lblip, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -147,13 +151,13 @@ public class LoginWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtipActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtipActionPerformed
-
     private void txtuserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtuserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtuserActionPerformed
+
+    private void txtpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpassActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtpassActionPerformed
 
     private void cbmotorddbbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmotorddbbActionPerformed
         // TODO add your handling code here:
@@ -170,20 +174,31 @@ public class LoginWindow extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Todos los datos deben de ser introducidos para establecer una conexión");
         else{
             
-            try( DBScheme scheme = new DBScheme(motorDB, ip, nameDB, user, pass)){
+            try{
+                DBScheme scheme = new DBScheme(motorDB, ip, nameDB, user, pass);
+                ((GetDataWindow)getParent()).setDb(scheme); // mientras esta linea exista no se puede iniciar el programa hasta que getDataWindow este completado
                 setVisible(false);
-                nuevaVentanaParaExportación(scheme).setVisible(true);
+                
             }catch( SQLException e ){
                 JOptionPane.showMessageDialog(this, "Imposible conectar con la base de datos");
             }catch( Exception e ){
                 System.err.println(e.getMessage());
             }
-            
+            /*
+            - Creamos la ventana principal
+            - Lanzamos el JDialog/JFrame de Login
+            - nos devuelve el DBScheme
+            - Actualizamos la ventana principal
+            */
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
+    private void txtnamedbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnamedbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtnamedbActionPerformed
+
     public static ComboBoxModel<DBClass> getMotorsModel(){
-        return cbMotorsModel;
+        return CB_MOTORS_MODEL;
     }
     
     private String user;
@@ -191,42 +206,8 @@ public class LoginWindow extends javax.swing.JFrame {
     private String ip;
     private String nameDB;
     private DBClass motorDB;
-    private static final ComboBoxModel<DBClass> cbMotorsModel = new DBClassComboBoxModel();
+    private static final ComboBoxModel<DBClass> CB_MOTORS_MODEL = new DBClassComboBoxModel();
     
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new LoginWindow().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
