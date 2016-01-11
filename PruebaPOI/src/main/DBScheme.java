@@ -16,6 +16,33 @@ import java.util.Map;
  */
 public class DBScheme implements AutoCloseable{
     
+    public static class DBColumn{
+        
+        private String name;
+        private String type;
+
+        public DBColumn(String name, String type) {
+            this.name = name;
+            this.type = type;
+        }
+
+        public String getType() {
+            return type;
+        }
+
+        public void setType(String type) {
+            this.type = type;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+    }
+    
     private Connection con;
     
     
@@ -62,21 +89,39 @@ public class DBScheme implements AutoCloseable{
         
         return listaNombres;
     }
+    
     /**
-     * Devuelve un map con el nombre y tipo de todas las columnas de una tabla dada existente que el actual esquema
+     * Devuelve un map con el nombre de la tabla y Metadatos de la columna de todas las columnas que cumplan el patrón en las tablas que cumplan el patrón dado
      * @param table
      * @return
      * @throws SQLException 
      */
-    public Map<String,String> getColumnsInfo(String table)throws SQLException{
-        ResultSet rs = con.getMetaData().getColumns(null, null, table, null);
-        Map mapNombreTipo = new HashMap();
+    public Map<String,List<DBColumn>> getColumnsInfo(String table) throws SQLException{
+        return getColumnsInfo(table,null);
+    }
+    /**
+     * Devuelve un map con el nombre de la tabla y Metadatos de la columna de todas las columnas de unas tablas que cumplan el patrón dado
+     * @param table
+     * @param columnExp
+     * @return Map<NombreTabla,ListaMetadatosColumna>
+     * @throws SQLException 
+     */
+    public Map<String,List<DBColumn>> getColumnsInfo(String table, String columnExp)throws SQLException{
+        ResultSet rs = con.getMetaData().getColumns(null, null, table, columnExp);
+        Map<String,List<DBColumn>> mapNombreTipo = new HashMap();
         String name;
         String type;
+        String tableName;
+        List<DBColumn> columnList;
+        DBColumn column;
         while(rs.next()){
+            tableName = rs.getString(3);
             name = rs.getString(4);
             type = rs.getString(5);
-            mapNombreTipo.put(name, type);
+            column = new DBColumn(name, type);
+            mapNombreTipo.putIfAbsent(tableName, new ArrayList());
+            columnList = mapNombreTipo.get(tableName);
+            columnList.add(column);
         }
         
         return mapNombreTipo;

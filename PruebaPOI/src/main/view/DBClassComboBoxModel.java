@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package main;
+package main.view;
 
 import javax.swing.ComboBoxModel;
 import javax.swing.event.ListDataEvent;
 import javax.swing.event.ListDataListener;
+import main.DBClass;
 
 /**
  *
@@ -15,19 +16,19 @@ import javax.swing.event.ListDataListener;
  */
 public class DBClassComboBoxModel implements ComboBoxModel<DBClass>{
 
-    private final static DBClass[] valores = DBClass.values();
+    private final static DBClass[] VALORES = DBClass.values();
     private Object selection;
     private ListDataListener ldl;
     
     
     public DBClassComboBoxModel(){
-        selection = valores[0];
+        selection = VALORES[0];
     }
     
     @Override
     public void setSelectedItem(Object anItem) {
         selection = anItem;
-        ListDataEvent evt = new ListDataEvent(this, ListDataEvent.CONTENTS_CHANGED, 0, valores.length);
+        ListDataEvent evt = new ListDataEvent(this, ListDataEvent.CONTENTS_CHANGED, 0, VALORES.length);
         ldl.contentsChanged( evt );
     }
 
@@ -38,12 +39,12 @@ public class DBClassComboBoxModel implements ComboBoxModel<DBClass>{
 
     @Override
     public int getSize() {
-        return valores.length;
+        return VALORES.length;
     }
 
     @Override
     public DBClass getElementAt(int index) {
-        return valores[index];
+        return VALORES[index];
     }
 
     @Override

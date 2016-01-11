@@ -14,7 +14,7 @@ public enum DBClass {
     
     private final String driver;
     
-    DBClass(String driver){
+    DBClass(String driver){    
         this.driver = driver;
     }
     

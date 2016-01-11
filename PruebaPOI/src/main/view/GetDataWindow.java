@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package main;
+package main.view;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,6 +12,8 @@ import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileFilter;
+import main.DBScheme;
+import main.ExcelUtils;
 
 /**
  *
@@ -23,7 +25,8 @@ public class GetDataWindow extends javax.swing.JFrame {
      * Creates new form GetDataWindow
      */
     public GetDataWindow() {
-        new LoginWindow(this, true).setVisible(true);
+        while( db == null)
+            new LoginWindow(this, true).setVisible(true);
         initComponents();
     }
     

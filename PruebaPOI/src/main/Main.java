@@ -5,6 +5,8 @@
  */
 package main;
 
+import main.view.LoginWindow;
+import main.view.GetDataWindow;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

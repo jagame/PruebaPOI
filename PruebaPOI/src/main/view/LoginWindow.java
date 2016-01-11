@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package main;
+package main.view;
 
 import java.sql.SQLException;
 import javax.swing.ComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import main.DBClass;
+import main.DBScheme;
 
 /**
  *
@@ -24,6 +26,7 @@ public class LoginWindow extends javax.swing.JDialog {
     public LoginWindow( JFrame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
     }
 
     /**
